@@ -1,0 +1,128 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model.Value("pageTitle");
+	var backgroundImage = Model?.Value<IPublishedContent>("heroSectionBackroundimage").Url()??"";
+    var backgroundImage2 = Model?.Value<IPublishedContent>("ourStorySectionBackround").Url()??"";
+    var backgroundImage3 = Model?.Value<IPublishedContent>("successSectionBackroundImage").Url()??"";   
+    var signatureImage = Model?.Value<IPublishedContent>("aboutUsSignatureImage").Url()??"";  
+}
+<h1>@Model?.Value("pageTitle")</h1>
+
+<section id="hero-slider" class="hero" style="background-image: url(@backgroundImage);">
+     <div class="container">
+        <div class="hero-content">
+<h2>@Model.Value("heroSectionHeadline")</h2>
+<p>@Model.Value("heroSectionText")</p>
+<button class=""><a href="/contact.html" class="btn btn-primary">@Model.Value("heroSectionButtontext")</a></button>
+        </div>
+     </div>
+</section>
+
+<section id="about-us" class="about-us">
+<div class="container">
+    <div class="content">
+        <div class="headline">
+	        <h5>@Model.Value("aboutUsMiniHeadline")</h5>
+	        <h2>@Model.Value("aboutUsMegaHeadline")</h2>
+        </div>
+	    <p>@Model.Value("aboutUsQuote")</p>
+	    <p>@Model.Value("aboutUsText")</p>
+    <div class="signature-container">
+        <img src="@signatureImage">
+        <p>@Model.Value("aboutUsSignatureText")</p>
+    </div>
+     </div>
+ </div>
+</section>
+<section id="our-services" class="our-services">
+    <div class="container">
+        <div class="content">
+            <div class="headline">
+                <h5>@Model.Value("ourServicesMiniHeadline")S</h5>
+                <h2>
+                 @Model.Value("ourServicesMegaHeadline")
+                </h2>
+            </div>
+            <div class="content-grid">
+                <div class="item-container">
+                    <h3>@Model.Value("ourServicesListHeadline1")</h3>
+                    <img src="/Images/Home/image-21-min 1.png" alt="our-services" class="services-item-image" />
+                    <p class="item-text">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </div>
+                <div class="item-container">
+                    <h3>@Model.Value("ourServicesListHeadline2")</h3>
+                    <img src="/Images/Home/image-18-min 1.png" alt="our-services" class="services-item-image" />
+                    <p class="item-text">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </div>
+                <div class="item-container">
+                    <h3>@Model.Value("ourServicesListHeadline3")</h3>
+                    <img src="/Images/Home/image-13-min 1.png" alt="our-services" class="services-item-image" />
+                    <p class="item-text">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </div>
+                <div class="item-container">
+                    <h3>@Model.Value("ourServicesListHeadline4")</h3>
+                    <img src="/Images/Home/image-22-min 1.png" alt="our-services" class="services-item-image" />
+                    <p class="item-text">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </div>
+                <div class="item-container">
+                    <h3>@Model.Value("ourServicesListHeadline5")</h3>
+                    <img src="/Images/Home/image-23-min 1.png" alt="our-services" class="services-item-image" />
+                    <p class="item-text">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </div>
+                <div class="item-container">
+                    <h3>@Model.Value("ourServicesListHeadline6")</h3>
+                    <img src="/Images/Home/image-24-min 1.png" alt="our-services" class="services-item-image" />
+                    <p class="item-text">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+ <section id="our-story" class="our-story">
+     <div class="container" style="background-image: url(@backgroundImage2); background-size: cover;">
+         <div class="content">
+             <div class="headline">
+                 <h2>@Model.Value("ourStorySectionHeadline")
+                     <span>@Model.Value("ourStorySectionSpan")</span></h2>
+             </div>
+                 <p class="section-text">@Model.Value("ourStorySectionText")</p>  
+                 
+                 <div class="button-contact-us">
+                     <a href="/contact.html" class="btn-primary">@Model.Value("ourStorySectionButtonText")</a>
+                 </div>
+             </div>
+             
+     
+         
+             <div class="our-story-image">
+                 <img src="/images/our-story.png" alt="This is our story"/>
+             </div>
+         </div>
+ </section>
+
+ <section id="success-stories" class="success-stories">
+        <div class="container" style="background-image:url(@backgroundImage3); background-size:cover">
+            <div class="headline">
+                <h5>@Model.Value("successSectionMiniHeadline")</h5>
+                <h2>@Model.Value("successSectionMegaHeadline")</h2>
+            </div>
+            <div class="content">
+                <div class="item-container">
+                    <h4>@Model.Value("successSectionNumber1")</h4>
+                    <p>@Model.Value("successSectionNumber1Text")</p>
+                </div>
+                <div class="item-container">
+                    <h4>@Model.Value("successSectionNumber2")</h4>
+                    <p>@Model.Value("successSectionNumber2Text")</p>
+                </div>
+                <div class="item-container">
+                    <h4>@Model.Value("successSectionNumber3")</h4>
+                    <p>@Model.Value("successSectionNumber3Text")</p>
+                </div>
+            </div>
+        </div>
+        <img src="images/succesStory.png" alt="succes stories" class="success-image" />
+    </section>
